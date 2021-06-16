@@ -1,6 +1,7 @@
 import React from 'react'
 import mapboxgl from 'mapbox-gl'
-import { useRef, useEffect, useState} from 'react'
+import { useRef, useEffect, useState } from 'react'
+import './Map.css'
 
 export default function Map() {
   mapboxgl.accessToken = 'pk.eyJ1IjoiY25hdmVsaXRlIiwiYSI6ImNrcHg2bjlvbjF5NzAyb3F2NHh0dXQ5ZTAifQ.v4VyFJIRseEU-oxjFcUQLw'
@@ -20,6 +21,19 @@ export default function Map() {
     });
 
     map.addControl(new mapboxgl.NavigationControl(), 'top-right')
+
+    map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+          enableHighAccuracy: true
+      },
+      fitBoundsOptions: {maxZoom: 13},
+      trackUserLocation: true,
+    }));
+    
+    new mapboxgl.Marker()
+      .setLngLat([-122.4975264, 45.3951906])
+      .addTo(map)
+      
 
     map.on('move', () => {
       setLng(map.getCenter().lng.toFixed(4));
