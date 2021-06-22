@@ -1,0 +1,36 @@
+.selection {
+  margin: 0px 0px 0px 0px;
+  float: left;
+  display: inline;
+}
+
+label {
+  width: 80%;
+  display: inline;
+  word-wrap: break-word;
+}
+
+#dropdown-arrow {
+  right: 15px;
+}
+
+.accommodation-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.selection {
+  margin: 3px 5px 0px 0px;
+  float: left;
+  display: inline;
+}
+
+.dropdown-menu {
+  padding-left: 10px;
+}
+
+.dropdown-button {
+  border: none;
+  background: none;
+  color: white;
+}

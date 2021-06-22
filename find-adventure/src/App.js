@@ -1,4 +1,7 @@
 import './App.css';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import {fas } from '@fortawesome/free-solid-svg-icons'
 import {useState} from 'react'
 import Map from './Components/Map/Map'
 import Sidebar from './Components/Sidebar/Sidebar'
@@ -30,6 +33,8 @@ function App() {
   // const [sportIsActive, setSportIsActive] = useState(false)
   // const [tourismIsActive, setTourismIsActive] = useState(false)
   
+  library.add(far, fas)
+
   return (
     <div id='main' >
       <Sidebar
