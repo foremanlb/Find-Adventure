@@ -27,11 +27,12 @@ export default function Map() {
           enableHighAccuracy: true
       },
       fitBoundsOptions: {maxZoom: 13},
-      trackUserLocation: true,
+      trackUserLocation: true
     }));
     
     new mapboxgl.Marker()
-      .setLngLat([-122.4975264, 45.3951906])
+      .setLngLat([-123.10587957989165, 44.06802185])
+      .setPopup(new mapboxgl.Popup().setHTML("<h1>Valley River Center</h1>"))
       .addTo(map)
       
 

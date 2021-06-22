@@ -1,12 +1,53 @@
 import './App.css';
+import {useState} from 'react'
 import Map from './Components/Map/Map'
 import Sidebar from './Components/Sidebar/Sidebar'
 
 function App() {
+  const [menuIsActive, setMenuIsActive] = useState(false)
+  // const [accommodationIsActive, setAccommodationIsActive] = useState(false)
+  // const [activityIsActive, setActivityIsActive] = useState(false)
+  // const [commercialIsActive, setCommercialIsActive] = useState(false)
+  // const [cateringIsActive, setCateringIsActive] = useState(false)
+  // const [educationIsActive, setEducationIsActive] = useState(false)
+  // const [childcareIsActive, setChildcareIsActive] = useState(false)
+  // const [entertainmentIsActive, setEntertainmentIsActive] = useState(false)
+  // const [healthcareIsActive, setHealthcareIsActive] = useState(false)
+  // const [leisureIsActive, setLeisureIsActive] = useState(false)
+  // const [naturalIsActive, setNaturalIsActive] = useState(false)
+  // const [nationalParkIsActive, setNationalParkIsActive] = useState(false)
+  // const [parkingIsActive, setParkingIsActive] = useState(false)
+  // const [petIsActive, setPetIsActive] = useState(false)
+  // const [rentalIsActive, setRentalIsActive] = useState(false)
+  // const [serviceIsActive, setServiceIsActive] = useState(false)
+  // const [tourismIsActive, setTourismIsActive] = useState(false)
+  // const [campingIsActive, setCampingIsActive] = useState(false)
+  // const [amenityIsActive, setAmenityIsActive] = useState(false)
+  // const [beachIsActive, setBeachIsActive] = useState(false)
+  // const [airportIsActive, setAirportIsActive] = useState(false)
+  // const [buildingIsActive, setBuildingIsActive] = useState(false)
+  // const [skiIsActive, setSkiIsActive] = useState(false)
+  // const [sportIsActive, setSportIsActive] = useState(false)
+  // const [publicTransportationIsActive, setPublicTransportationIsActive] = useState(false)
   
   return (
     <div id='main' >
-      <Sidebar />
+      <Sidebar
+        setMenuIsActive={setMenuIsActive} menuIsActive={menuIsActive}
+        // setIsActive={setIsActive} isActive={isActive}
+        // setIsActive={setIsActive} isActive={isActive}
+        // setIsActive={setIsActive} isActive={isActive}
+        // setIsActive={setIsActive} isActive={isActive}
+        // setIsActive={setIsActive} isActive={isActive}
+        // setIsActive={setIsActive} isActive={isActive}
+        // setIsActive={setIsActive} isActive={isActive}
+        // setIsActive={setIsActive} isActive={isActive}
+        // setIsActive={setIsActive} isActive={isActive}
+        // setIsActive={setIsActive} isActive={isActive}
+        // setIsActive={setIsActive} isActive={isActive}
+        // setIsActive={setIsActive} isActive={isActive}
+      
+      />
       <Map />
     </div>
   );
