@@ -1,5 +1,5 @@
 import React from 'react'
-import mapboxgl from 'mapbox-gl'
+import mapboxgl from '!mapbox-gl'// eslint-disable-line
 import { useRef, useEffect, useState } from 'react'
 import './Map.css'
 
