@@ -3,14 +3,16 @@ import mapboxgl from '!mapbox-gl'// eslint-disable-line
 import { useRef, useEffect, useState } from 'react'
 import './Map.css'
 
-export default function Map() {
+export default function Map(props) {
   mapboxgl.accessToken = 'pk.eyJ1IjoiY25hdmVsaXRlIiwiYSI6ImNrcHg2bjlvbjF5NzAyb3F2NHh0dXQ5ZTAifQ.v4VyFJIRseEU-oxjFcUQLw'
 
   const mapContainerRef = useRef(null);
-
-  const [lng, setLng] = useState(-123.1);
-  const [lat, setLat] = useState(44.04);
-  const [zoom, setZoom] = useState(11);
+  const lng = props.lng
+  const lat = props.lat
+  const zoom = props.zoom
+  const setLng = props.setLng
+  const setLat = props.setLat
+  const setZoom = props.setZoom
 
   useEffect(() => {
     const map = new mapboxgl.Map({
@@ -18,7 +20,7 @@ export default function Map() {
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [lng, lat],
       zoom: zoom
-    });
+    }, []);
 
     map.addControl(new mapboxgl.NavigationControl(), 'top-right')
 

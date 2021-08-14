@@ -1,1 +1,0 @@
-export const baseURL = `https://api.geoapify.com/v2/places?APIKEY=${REACT_APP_PLACES_KEY}`

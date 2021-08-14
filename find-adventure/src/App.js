@@ -2,13 +2,19 @@ import './App.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import {fas } from '@fortawesome/free-solid-svg-icons'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Map from './Components/Map/Map'
 import Sidebar from './Components/Sidebar/Sidebar'
+import {getPlaces} from './Services/places'
 
 function App() {
+  
   const [menuIsActive, setMenuIsActive] = useState(false)
   const [accommodationIsActive, setAccommodationIsActive] = useState(false)
+  const [lng, setLng] = useState(-123.1);
+  const [lat, setLat] = useState(44.04);
+  const [zoom, setZoom] = useState(11);
+  const [finalURL, setFinalURL] = useState(``)
   // const [activityIsActive, setActivityIsActive] = useState(false)
   // const [amenityIsActive, setAmenityIsActive] = useState(false)
   // const [airportIsActive, setAirportIsActive] = useState(false)
@@ -35,9 +41,17 @@ function App() {
   
   library.add(far, fas)
 
+  useEffect(() => {
+    setFinalURL(`&offset=0&filter=circle:${lng},${lat},8047&bias=proximity:${lng},${lat}`)
+  }, [lat, lng])
+
+
   return (
     <div id='main' >
       <Sidebar
+        lng={lng}
+        lat={lat}
+        finalURL={finalURL} setFinalURL={setFinalURL}
         setMenuIsActive={setMenuIsActive} menuIsActive={menuIsActive}
         setAccommodationIsActive={setAccommodationIsActive} accommodationIsActive={accommodationIsActive}
         // setIsActive={setIsActive} isActive={isActive}
@@ -53,7 +67,7 @@ function App() {
         // setIsActive={setIsActive} isActive={isActive}
       
       />
-      <Map />
+      <Map lng={lng} setLng={setLng} lat={lat} setLat={setLat} zoom={zoom} setZoom={setZoom}/>
     </div>
   );
 }

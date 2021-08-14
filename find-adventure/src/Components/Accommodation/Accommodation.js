@@ -3,6 +3,24 @@ import './Accommodation.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Accommodation(props) {
+  const setCategories = props.setCategories
+
+  const handleTypeSelection = (e) => {
+    if (e.target.checked) {
+      setCategories((prevState) => {
+        let categoryArr = [...prevState.accommodation, e.target.value]
+        return { ...prevState, accommodation: categoryArr}
+      })
+    } else {
+      setCategories((prevState) => {
+        let index = prevState.accommodation.indexOf(e.target.value)
+        let categoryArr = prevState.accommodation.slice()
+        categoryArr.splice(index, 1)
+        return { ...prevState, accommodation: categoryArr}
+      })
+    }
+  }
+
   return (
     <div id='accommodation-div'>
         <FontAwesomeIcon icon='caret-down' />
@@ -10,31 +28,31 @@ export default function Accommodation(props) {
       <br></br>
         <div className='dropdown-menu'>
         <label>
-          <input type='checkbox' name='hotel' value='hotel' className='selection' />Hotel
+          <input type='checkbox' name='accommodation' value='hotel' className='selection' onChange={handleTypeSelection}/>Hotel
         </label>
         <br></br>
         <label>
-          <input type='checkbox' name='hut' value='hut' className='selection' />Hut
+          <input type='checkbox' name='accommodation' value='hut' className='selection' onChange={handleTypeSelection}/>Hut
         </label>
         <br></br>
         <label>
-          <input type='checkbox' name='apartment' value='apartment' className='selection' />Apartment
+          <input type='checkbox' name='accommodation' value='apartment' className='selection' onChange={handleTypeSelection}/>Apartment
         </label>
         <br></br>
         <label>
-          <input type='checkbox' name='chalet' value='chalet' className='selection' />Chalet
+          <input type='checkbox' name='accommodation' value='chalet' className='selection' onChange={handleTypeSelection}/>Chalet
         </label>
         <br></br>
         <label>
-          <input type='checkbox' name='guest_house' value='guest_house' className='selection' />Guest House
+          <input type='checkbox' name='accommodation' value='guest_house' className='selection' onChange={handleTypeSelection}/>Guest House
         </label>
         <br></br>
         <label>
-          <input type='checkbox' name='hostel' value='hostel' className='selection' />Hostel
+          <input type='checkbox' name='accommodation' value='hostel' className='selection' onChange={handleTypeSelection}/>Hostel
         </label>
         <br></br>
         <label>
-          <input type='checkbox' name='motel' value='motel' className='selection' />Motel
+          <input type='checkbox' name='accommodation' value='motel' className='selection' onChange={handleTypeSelection}/>Motel
         </label>
         </div>
     </div>
