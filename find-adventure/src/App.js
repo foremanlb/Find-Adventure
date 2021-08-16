@@ -5,11 +5,12 @@ import {fas } from '@fortawesome/free-solid-svg-icons'
 import {useState, useEffect} from 'react'
 import Map from './Components/Map/Map'
 import Sidebar from './Components/Sidebar/Sidebar'
-import {getPlaces} from './Services/places'
+import Results from './Components/Results/Results'
 
 function App() {
-  
+  const [places, setPlaces] = useState([])
   const [menuIsActive, setMenuIsActive] = useState(false)
+  const [resultsIsActive, setResultsIsActive] = useState(false)
   const [accommodationIsActive, setAccommodationIsActive] = useState(false)
   const [lng, setLng] = useState(-123.1);
   const [lat, setLat] = useState(44.04);
@@ -52,6 +53,7 @@ function App() {
         lng={lng}
         lat={lat}
         finalURL={finalURL} setFinalURL={setFinalURL}
+        setPlaces={setPlaces}
         setMenuIsActive={setMenuIsActive} menuIsActive={menuIsActive}
         setAccommodationIsActive={setAccommodationIsActive} accommodationIsActive={accommodationIsActive}
         // setIsActive={setIsActive} isActive={isActive}
@@ -67,6 +69,8 @@ function App() {
         // setIsActive={setIsActive} isActive={isActive}
       
       />
+      <Results setResultsIsActive={setResultsIsActive} resultsIsActive={resultsIsActive}
+        places={places}/>
       <Map lng={lng} setLng={setLng} lat={lat} setLat={setLat} zoom={zoom} setZoom={setZoom}/>
     </div>
   );

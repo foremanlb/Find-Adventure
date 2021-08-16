@@ -1,9 +1,15 @@
 import React from 'react'
+import { useEffect } from 'react'
 import './Accommodation.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function Accommodation(props) {
   const setCategories = props.setCategories
+  const categories = props.categories
+
+  useEffect(() => {
+    searchCategories()
+  }, [categories])
 
   const handleTypeSelection = (e) => {
     if (e.target.checked) {
@@ -19,7 +25,23 @@ export default function Accommodation(props) {
         return { ...prevState, accommodation: categoryArr}
       })
     }
+
   }
+
+  const searchCategories = () => {
+    let categorySearch = ``
+    for (const [key, value] of Object.entries(categories)) {
+      if (value.length > 0) {
+        value.map((item) => {
+          categorySearch = `${categorySearch},${key}.${item}`
+          return categorySearch
+        })
+      }
+    }
+    const fixedCategory = categorySearch.slice(1)
+    props.setCategoryURL(fixedCategory)
+  }
+
 
   return (
     <div id='accommodation-div'>

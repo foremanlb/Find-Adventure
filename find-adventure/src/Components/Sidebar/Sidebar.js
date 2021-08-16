@@ -8,7 +8,6 @@ import Accommodation from '../Accommodation/Accommodation'
 export default function Sidebar(props) {
   const finalURL = props.finalURL
   const setFinalURL = props.setFinalURL
-  const [places, setPlaces] = useState([])
   const [categoryURL, setCategoryURL] = useState(``)
   const [categories, setCategories] = useState({
     accommodation: [],
@@ -37,32 +36,36 @@ export default function Sidebar(props) {
     tourism: []
   })
   
+  const setPlaces = props.setPlaces
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
-    searchCategories()
+    
     if (categoryURL !== '') {
       const res = await axios.get(`${baseURL}${finalURL}&categories=${categoryURL}`)
       setPlaces(res.data.features)
     }
   }
 
-  const searchCategories = () => {
-    let categorySearch = ``
-    for (const [key, value] of Object.entries(categories)) {
-      if (value.length > 0) {
-        value.map((item) => {
-          categorySearch = `${categorySearch},${key}.${item}`
-          return categorySearch
-        })
-      }
-    }
-    const fixedCategory = categorySearch.slice(1)
-    setCategoryURL(fixedCategory)
-  }
 
   const handleClick = () => {
     props.setMenuIsActive(!props.menuIsActive)
+    // searchCategories()
   }
+  
+  // const searchCategories = () => {
+  //   let categorySearch = ``
+  //   for (const [key, value] of Object.entries(categories)) {
+  //     if (value.length > 0) {
+  //       value.map((item) => {
+  //         categorySearch = `${categorySearch},${key}.${item}`
+  //         return categorySearch
+  //       })
+  //     }
+  //   }
+  //   const fixedCategory = categorySearch.slice(1)
+  //   setCategoryURL(fixedCategory)
+  // }
 
   return (
     <div className={props.menuIsActive ? 'sidebar-small' : 'sidebar-large'}>
@@ -71,6 +74,7 @@ export default function Sidebar(props) {
           accommodationIsActive={props.accommodationIsActive} setAccommodationIsActive={props.setAccommodationIsActive}
           finalURL={finalURL} setFinalURL={setFinalURL}
           setCategories={setCategories} categories={categories}
+          setCategoryURL={setCategoryURL}
         />
         {/* <button className='dropdown-button'>Commercial</button>
         <div className={props.isActive ? 'arrow-right' : 'arrow-left'} id='dropdown-arrow'></div>
