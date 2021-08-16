@@ -17,7 +17,7 @@ function App() {
   const [lat, setLat] = useState(44.04);
   const [zoom, setZoom] = useState(11);
   const [finalURL, setFinalURL] = useState(``)
-  // const [activityIsActive, setActivityIsActive] = useState(false)
+  const [activityIsActive, setActivityIsActive] = useState(false)
   // const [amenityIsActive, setAmenityIsActive] = useState(false)
   // const [airportIsActive, setAirportIsActive] = useState(false)
   // const [beachIsActive, setBeachIsActive] = useState(false)
