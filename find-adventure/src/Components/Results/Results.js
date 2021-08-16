@@ -10,7 +10,9 @@ export default function Results(props) {
   return (
     <div className={props.resultsIsActive ? 'results-large' : 'results-small'}>
       <div>
-        <ResultsList places={props.places} />
+        <ResultsList places={props.places}
+          setLng={props.setLng} setLat={props.setLat} setZoom={props.setZoom}
+          setResetMap={props.setResetMap} resetMap={props.resetMap}/>
       </div>
       <button type='button' className='resultsTab' onClick={handleClick}>
         <div className={props.resultsIsActive ? 'arrow-left' : 'arrow-right'}></div>

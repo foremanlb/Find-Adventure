@@ -9,6 +9,7 @@ import Results from './Components/Results/Results'
 
 function App() {
   const [places, setPlaces] = useState([])
+  const [resetMap, setResetMap] = useState(true)
   const [menuIsActive, setMenuIsActive] = useState(false)
   const [resultsIsActive, setResultsIsActive] = useState(false)
   const [accommodationIsActive, setAccommodationIsActive] = useState(false)
@@ -70,8 +71,10 @@ function App() {
       
       />
       <Results setResultsIsActive={setResultsIsActive} resultsIsActive={resultsIsActive}
-        places={places}/>
-      <Map lng={lng} setLng={setLng} lat={lat} setLat={setLat} zoom={zoom} setZoom={setZoom}/>
+        places={places}
+        setLng={setLng} setLat={setLat} setZoom={setZoom}
+        setResetMap={setResetMap} resetMap={resetMap}/>
+      <Map lng={lng} setLng={setLng} lat={lat} setLat={setLat} zoom={zoom} setZoom={setZoom} places={places} resetMap={resetMap}/>
     </div>
   );
 }

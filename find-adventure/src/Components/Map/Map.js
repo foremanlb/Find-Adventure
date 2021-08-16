@@ -32,19 +32,28 @@ export default function Map(props) {
       trackUserLocation: true
     }));
     
-    new mapboxgl.Marker()
-      .setLngLat([-123.10587957989165, 44.06802185])
-      .setPopup(new mapboxgl.Popup().setHTML("<h1>Valley River Center</h1><br><a href='http://maps.apple.com/?daddr=293+Valley+River+Center+Parking+Lot,+Eugene+OR' target='blank' rel='noreferrer noopener'>Take me there</a>"))
+    props.places.forEach((place) => {
+      const placeStreet = place.properties.street.replace(/ /g, '+')
+      new mapboxgl.Marker()
+      .setLngLat([place.properties.lon, place.properties.lat])
+      .setPopup(new mapboxgl.Popup().setHTML(`<h1>${place.properties.name}</h1><br><a href='http://maps.apple.com/?daddr=${place.properties.housenumber}+${placeStreet}+${place.properties.city}+${place.properties.state}' target='blank' rel='noreferrer noopener'>${place.properties.housenumber} ${place.properties.street}, ${place.properties.city}, ${place.properties.state} ${place.properties.postcode}</a>`))
       .addTo(map)
+    })
       
+    map.setCenter([lng, lat]);
+    
+    map.setZoom(zoom)
 
     map.on('move', () => {
       setLng(map.getCenter().lng.toFixed(4));
       setLat(map.getCenter().lat.toFixed(4));
       setZoom(map.getZoom().toFixed(2))
   })
-  return () => map.remove();
-}, []);
+    return () => map.remove();
+    
+    
+    
+  }, [props.places, props.resetMap]);
 
   return (
     <div>

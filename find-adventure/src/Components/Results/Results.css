@@ -3,7 +3,7 @@
   height: 90vh;
   z-index: 1;
   position: absolute;
-  background-color: rgba(49, 183, 185, 0.9);
+  background-color: rgba(62, 178, 206, 0.9);
   color: #000000;
   border-radius: 4px;
   top: 5vh;
@@ -16,7 +16,7 @@
   height: 90vh;
   z-index: 1;
   position: absolute;
-  background-color: rgba(49, 183, 185, 0.9);
+  background-color: rgba(62, 178, 206, 0.9);
   color: #000000;
   border-radius: 4px;
   top: 5vh;
@@ -25,7 +25,7 @@
 }
 
 .resultsTab {
-  background-color: rgba(49, 183, 185, 0.9);
+  background-color: rgba(62, 178, 206, 0.9);
   border: none;
   position: absolute;
   top: 50%;
