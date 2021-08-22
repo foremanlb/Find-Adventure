@@ -9,7 +9,7 @@ export default function Results(props) {
 
   return (
     <div className={props.resultsIsActive ? 'results-large' : 'results-small'}>
-      <div>
+      <div className={props.resultsIsActive ? 'results-list' : 'results-list-hidden'}>
         <ResultsList places={props.places}
           setLng={props.setLng} setLat={props.setLat} setZoom={props.setZoom}
           setResetMap={props.setResetMap} resetMap={props.resetMap}/>

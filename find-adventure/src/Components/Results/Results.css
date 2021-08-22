@@ -35,3 +35,11 @@
   border-bottom-right-radius: 4px;
   cursor: pointer;
 }
+
+.results-list-hidden {
+  display: none;
+}
+
+.results-list {
+  margin: 10px;
+}
