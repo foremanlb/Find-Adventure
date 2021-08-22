@@ -3,7 +3,9 @@ import axios from 'axios'
 import { useState } from 'react'
 import {baseURL} from '../../Services/apiConfig'
 import './Sidebar.css'
+import Distance from '../Distance/Distance'
 import Accommodation from '../Accommodation/Accommodation'
+
 
 export default function Sidebar(props) {
   const finalURL = props.finalURL
@@ -44,32 +46,19 @@ export default function Sidebar(props) {
     if (categoryURL !== '') {
       const res = await axios.get(`${baseURL}${finalURL}&categories=${categoryURL}`)
       setPlaces(res.data.features)
+      props.setMenuIsActive(!props.menuIsActive)
+      props.setResultsIsActive(true)
     }
   }
 
-
   const handleClick = () => {
     props.setMenuIsActive(!props.menuIsActive)
-    // searchCategories()
   }
-  
-  // const searchCategories = () => {
-  //   let categorySearch = ``
-  //   for (const [key, value] of Object.entries(categories)) {
-  //     if (value.length > 0) {
-  //       value.map((item) => {
-  //         categorySearch = `${categorySearch},${key}.${item}`
-  //         return categorySearch
-  //       })
-  //     }
-  //   }
-  //   const fixedCategory = categorySearch.slice(1)
-  //   setCategoryURL(fixedCategory)
-  // }
 
   return (
     <div className={props.menuIsActive ? 'sidebar-small' : 'sidebar-large'}>
       <form className={props.menuIsActive ? 'filter-list-hidden' : 'filter-list'}>
+        <Distance />
         <Accommodation
           accommodationIsActive={props.accommodationIsActive} setAccommodationIsActive={props.setAccommodationIsActive}
           finalURL={finalURL} setFinalURL={setFinalURL}

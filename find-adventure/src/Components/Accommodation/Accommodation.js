@@ -45,10 +45,10 @@ export default function Accommodation(props) {
 
   return (
     <div id='accommodation-div'>
-        <FontAwesomeIcon icon='caret-down' />
+      <FontAwesomeIcon icon='caret-down' />
       <button className='dropdown-button'>Accommodation</button>
       <br></br>
-        <div className='dropdown-menu'>
+        <div id='accommodation-dropdown-menu'>
         <label>
           <input type='checkbox' name='accommodation' value='hotel' className='selection' onChange={handleTypeSelection}/>Hotel
         </label>

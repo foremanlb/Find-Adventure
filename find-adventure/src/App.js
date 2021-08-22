@@ -56,6 +56,7 @@ function App() {
         finalURL={finalURL} setFinalURL={setFinalURL}
         setPlaces={setPlaces}
         setMenuIsActive={setMenuIsActive} menuIsActive={menuIsActive}
+        setResultsIsActive={setResultsIsActive}
         setAccommodationIsActive={setAccommodationIsActive} accommodationIsActive={accommodationIsActive}
         // setIsActive={setIsActive} isActive={isActive}
         // setIsActive={setIsActive} isActive={isActive}
